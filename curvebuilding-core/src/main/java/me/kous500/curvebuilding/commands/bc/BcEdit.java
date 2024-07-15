@@ -126,7 +126,7 @@ public final class BcEdit {
 
         nowLength = length;
     }
-	
+
     private void xz(Vector3[] selectionPos, int m, double fineness, Vector3 vec) throws MaxChangedBlocksException {
         Vector3 posA = vec;
         Vector3 posB = vec;
@@ -158,11 +158,11 @@ public final class BcEdit {
         if (argument.n == 0 && !config.tCenter) n = 1;
         set(selectionPos, 0, m, n, fineness, vec);
     }
-	
+
     private void set(Vector3[] selectionPos, int l, int m, int n, double fineness, Vector3 searchT) throws MaxChangedBlocksException {
-        double xt1 = selectionPos[0].getX();
-        double yt1 = selectionPos[0].getY();
-        double zt1 = selectionPos[0].getZ();
+        double xt1 = selectionPos[0].x();
+        double yt1 = selectionPos[0].y();
+        double zt1 = selectionPos[0].z();
 
         int L1 = argument.m;
         if (nowLength != 0 && n != 0) L1 += nowLength % n;
@@ -224,21 +224,21 @@ public final class BcEdit {
     private PosCoordinates pos(Vector3[] selectionPos, double t) {
         if (t == 0) t = 0.00001;
 
-        double x0 = selectionPos[0].getX();
-        double y0 = selectionPos[0].getY();
-        double z0 = selectionPos[0].getZ();
+        double x0 = selectionPos[0].x();
+        double y0 = selectionPos[0].y();
+        double z0 = selectionPos[0].z();
 
-        double x1 = selectionPos[1].getX();
-        double y1 = selectionPos[1].getY();
-        double z1 = selectionPos[1].getZ();
+        double x1 = selectionPos[1].x();
+        double y1 = selectionPos[1].y();
+        double z1 = selectionPos[1].z();
 
-        double x2 = selectionPos[2].getX();
-        double y2 = selectionPos[2].getY();
-        double z2 = selectionPos[2].getZ();
+        double x2 = selectionPos[2].x();
+        double y2 = selectionPos[2].y();
+        double z2 = selectionPos[2].z();
 
-        double x3 = selectionPos[3].getX();
-        double y3 = selectionPos[3].getY();
-        double z3 = selectionPos[3].getZ();
+        double x3 = selectionPos[3].x();
+        double y3 = selectionPos[3].y();
+        double z3 = selectionPos[3].z();
 
         double xt = (1-t)*(1-t)*(1-t)*x0 + 3*(1-t)*(1-t)*t*x1 + 3*(1-t)*t*t*x2 + t*t*t*x3;
         double yt = (1-t)*(1-t)*(1-t)*y0 + 3*(1-t)*(1-t)*t*y1 + 3*(1-t)*t*t*y2 + t*t*t*y3;

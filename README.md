@@ -9,11 +9,11 @@ File names should conform to BCP 47 (Language-Region).
 
 
 #### Currently supported languages are;
-| Language | File Name |
-| ---- | ---- |
-| 日本語 | jp.yml (Will be fixed to "ja-JP") |
+| Language    | File Name                         |
+|-------------|-----------------------------------|
+| 日本語         | jp.yml (Will be fixed to "ja-JP") |
 | English(US) | en.yml (Will be fixed to "en-US") |
-| 繁體中文 | zh-Hant.yml |
+| 繁體中文        | zh-Hant.yml                       |
 
 
 ## Download

@@ -14,7 +14,7 @@ public final class Util {
      * Vector3をroundで丸める。
      */
     public static BlockVector3 roundVector(Vector3 vec){
-        return BlockVector3.at(Math.round(vec.getX()), Math.round(vec.getY()), Math.round(vec.getZ()));
+        return BlockVector3.at(Math.round(vec.x()), Math.round(vec.y()), Math.round(vec.z()));
     }
 
     /**
@@ -22,7 +22,7 @@ public final class Util {
      */
     public static BlockVector3 floorVector(Vector3 vec){
         double e = 0.0001;
-        return BlockVector3.at(floorE(vec.getX(), e), floorE(vec.getY(), e), floorE(vec.getZ(), e));
+        return BlockVector3.at(floorE(vec.x(), e), floorE(vec.y(), e), floorE(vec.z(), e));
     }
 
     /**
@@ -54,15 +54,15 @@ public final class Util {
                 : "The value of pos cannot be null.";
 
         double length = 0;
-        double xt1 = pos[0].getX();
-        double yt1 = pos[0].getY();
-        double zt1 = pos[0].getZ();
+        double xt1 = pos[0].x();
+        double yt1 = pos[0].y();
+        double zt1 = pos[0].z();
 
         for (double i = 0; i <= 1; i += 1.0 / fineness) {
             Vector3 p = bezierCoordinate(pos, i);
-            double xt = p.getX();
-            double yt = p.getY();
-            double zt = p.getZ();
+            double xt = p.x();
+            double yt = p.y();
+            double zt = p.z();
 
             length += Math.sqrt((xt - xt1) * (xt - xt1) + (yt - yt1) * (yt - yt1) + (zt - zt1) * (zt - zt1));
             xt1 = xt;
@@ -91,9 +91,9 @@ public final class Util {
         Vector3 p2 = pos[2];
         Vector3 p3 = pos[3];
 
-        double x = pow(1-i, 3)*p0.getX() + 3*pow(1-i, 2)*i*p1.getX() + 3*(1-i)* pow(i, 2)*p2.getX() + pow(i, 3)*p3.getX() + 0.5;
-        double y = pow(1-i, 3)*p0.getY() + 3*pow(1-i, 2)*i*p1.getY() + 3*(1-i)* pow(i, 2)*p2.getY() + pow(i, 3)*p3.getY() + 0.5;
-        double z = pow(1-i, 3)*p0.getZ() + 3*pow(1-i, 2)*i*p1.getZ() + 3*(1-i)* pow(i, 2)*p2.getZ() + pow(i, 3)*p3.getZ() + 0.5;
+        double x = pow(1-i, 3)* p0.x() + 3*pow(1-i, 2)*i* p1.x() + 3*(1-i)* pow(i, 2)* p2.x() + pow(i, 3)* p3.x() + 0.5;
+        double y = pow(1-i, 3)* p0.y() + 3*pow(1-i, 2)*i* p1.y() + 3*(1-i)* pow(i, 2)* p2.y() + pow(i, 3)* p3.y() + 0.5;
+        double z = pow(1-i, 3)* p0.z() + 3*pow(1-i, 2)*i* p1.z() + 3*(1-i)* pow(i, 2)* p2.z() + pow(i, 3)* p3.z() + 0.5;
 
         return Vector3.at(x, y, z);
     }
@@ -105,7 +105,7 @@ public final class Util {
      * @return コピーされたVector3
      */
     public static Vector3 copyVector(Vector3 vec) {
-        if (vec != null) return Vector3.at(vec.getX(), vec.getY(), vec.getZ());
+        if (vec != null) return Vector3.at(vec.x(), vec.y(), vec.z());
         else return null;
     }
 

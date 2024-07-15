@@ -49,7 +49,7 @@ public final class PosData {
         PosData posData = POS_MAP.get(uuid);
 
         if (posData != null) {
-            if (posData.worldId == null || !posData.worldId.equals(world.getId())) {
+            if (posData.worldId == null || !posData.worldId.equals(world.id())) {
                 posData.p = new TreeMap<>();
             }
 
@@ -63,9 +63,9 @@ public final class PosData {
                 posData.p.put(n, l);
             } else {
                 if (h == 0 && l[h] != null) {
-                    double x = location.getX() - l[h].getX();
-                    double y = location.getY() - l[h].getY();
-                    double z = location.getZ() - l[h].getZ();
+                    double x = location.x() - l[h].x();
+                    double y = location.y() - l[h].y();
+                    double z = location.z() - l[h].z();
 
                     if (l[1] != null) l[1] = l[1].add(x, y, z);
                     if (l[2] != null) l[2] = l[2].add(x, y, z);
@@ -88,7 +88,7 @@ public final class PosData {
             }
 
             posData.world = world;
-            posData.worldId = world.getId();
+            posData.worldId = world.id();
             POS_MAP.replace(uuid, posData);
         } else {
             POS_MAP.put(uuid, new PosData(world, location, n, h));
@@ -98,9 +98,9 @@ public final class PosData {
     }
 
     private static Vector3 posAutocompletion(Vector3 h0, Vector3 hIN, Vector3 hOUT){
-        double x = hIN.getX() - h0.getX();
-        double y = hIN.getY() - h0.getY();
-        double z = hIN.getZ() - h0.getZ();
+        double x = hIN.x() - h0.x();
+        double y = hIN.y() - h0.y();
+        double z = hIN.z() - h0.z();
 
         if (hOUT == null) {
             return h0.add(-x, -y, -z);
@@ -310,7 +310,7 @@ public final class PosData {
 
     private PosData(World world, Vector3 location, int n, int h) {
         this.world = world;
-        this.worldId = world.getId();
+        this.worldId = world.id();
         Vector3[] l = new Vector3[3];
         l[h] = location;
         this.p.put(n, l);

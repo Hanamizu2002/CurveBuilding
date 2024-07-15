@@ -185,9 +185,9 @@ public class SendParticles extends TimerTask {
         Vector3 PlayerVec = adapt(player).getLocation().toVector();
         Vector3 bVec = pos1;
         for (double i = 0; i <= 1; i += 1.0 / (distance * config.lineDensity)) {
-            double x = (1 - i) * pos1.getX() + i * pos2.getX() + 0.5;
-            double y = (1 - i) * pos1.getY() + i * pos2.getY() + 0.5;
-            double z = (1 - i) * pos1.getZ() + i * pos2.getZ() + 0.5;
+            double x = (1 - i) * pos1.x() + i * pos2.x() + 0.5;
+            double y = (1 - i) * pos1.y() + i * pos2.y() + 0.5;
+            double z = (1 - i) * pos1.z() + i * pos2.z() + 0.5;
             Vector3 vec = Vector3.at(x, y, z);
             if ((PlayerVec.distance(vec) / 3000 * config.lineDensity) + (0.8 / config.lineDensity) < vec.distance(bVec)) {
                 Location location = adapt(adapt(world), vec);
